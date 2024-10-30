@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 // const path = require("path") // otherwise of static
-app.use(express.static("Views")) //globally access the html files to type as in the url
+app.use(express.static("Views")) //globally access the html files to type as in the url //its a MIDDLEWARE
 
 app.get("/",(req,res)=>{   // its a routing using express instead of http routing
    res.sendFile(path.join(__dirname,"Views","index.html")) // we can send or display the file
