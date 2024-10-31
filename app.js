@@ -1,32 +1,39 @@
 const express =require("express");
 const app = express();
+const path = require("path")
 const port =3000;
 //Basic Routing
+//HTML File as Response
 
-app.get("/",(req,res)=>{
-    res.send("Home")
-})
+// app.use(express.static('public'))
+
+// app.get("/",(req,res)=>{
+//     res.sendFile(path.join(__dirname,'index2.html'))
+// })
 //Product
-app.get("/product",(req,res)=>{//GET
-    res.send("Product PAGE")
+app.get('/product',(req,res)=>{//GET
+    res.send("product")
 })
-app.post("/product",(req,res)=>{//POST
-    res.send("Product Created")
+app.get('/product/:category',(req,res)=>{
+    res.send(req.params.category)
 })
-app.put("/product",(req,res)=>{//PUT
-    res.send("Product Edited")
-})
-app.delete("/product",(req,res)=>{//DELETE
-    res.send("Product Deleted")
-})
-//About
-app.get("/about",(req,res)=>{
-    res.send("About PAGE")
-})
-//Contact
-app.get("/contact",(req,res)=>{
-    res.send("Contact PAGE")
-})
+// // app.post("/product",(req,res)=>{//POST
+//     res.send("Product Created")
+// })
+// app.put("/product",(req,res)=>{//PUT
+//     res.send("Product Updated")
+// })                                    //it does not working in  the POSTMAN
+// app.delete("/product",(req,res)=>{//DELETE
+//     res.send("Product Deleted")
+// })
+// About
+// app.get("/about",(req,res)=>{
+//     res.sendFile(path.join(__dirname,'about.html'))
+// })
+// //Contact
+// app.get("/contact",(req,res)=>{
+//     res.sendFile(path.join(__dirname,'contact.html'))
+// })
 
 app.listen(port,()=>{
     console.log(`App listening on ${port}`)
